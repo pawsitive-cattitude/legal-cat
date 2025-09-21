@@ -1,0 +1,17 @@
+# Create service account
+gcloud iam service-accounts create legal-cat-service \
+    --description="Service account for Legal Cat application" \
+    --display-name="Legal Cat Service Account"
+
+# Grant necessary roles
+gcloud projects add-iam-policy-binding phrasal-bruin-470313-s2 \
+    --member="serviceAccount:legal-cat-service@phrasal-bruin-470313-s2.iam.gserviceaccount.com" \
+    --role="roles/aiplatform.user"
+
+gcloud projects add-iam-policy-binding phrasal-bruin-470313-s2 \
+    --member="serviceAccount:legal-cat-service@phrasal-bruin-470313-s2.iam.gserviceaccount.com" \
+    --role="roles/storage.admin"
+
+# Create and download service account key
+gcloud iam service-accounts keys create ~/legal-cat-service-account.json \
+    --iam-account=legal-cat-service@phrasal-bruin-470313-s2.iam.gserviceaccount.com
