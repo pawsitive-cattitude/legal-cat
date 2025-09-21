@@ -1,0 +1,16 @@
+uploads/
+analysis_cache/
+
+# build artifacts
+**/__pycache__/
+**/*.pyc
+
+# Environment file
+.env
+
+# Virtual environment
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
